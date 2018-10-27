@@ -1,0 +1,52 @@
+.post-title {
+  font-size: 18px !important;
+  white-space: inherit;
+  clear: both;
+}
+
+.post-intro-text {
+  font-size: 15px !important;
+  color: gray;
+  white-space: inherit;
+}
+
+.post-dat {
+  font-size: 14px !important;
+  color: gray;
+  white-space: inherit;
+  float: right;
+  text-align: right;
+  width: 70%;
+}
+
+.post-category {
+  font-size: 14px !important;
+  color: gray;
+  white-space: inherit;
+  float: left;
+  width: 30%;
+}
+
+.post-text {
+  font-size: 16px !important;
+}
+
+.hydrated {
+  margin: 0 auto;
+}
+
+button {
+  display: block;
+  margin: auto;
+}
+img {
+  width: 100%;
+}
+.preload {
+  width: auto;
+  display: block;
+  margin: auto;
+}
+ion-title {
+  cursor: pointer;
+}

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Проекты
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-card text-wrap class="list-selected" *ngFor='let project of projects; index as i;' (click)='goToProject(project._id)'>
+    <div>
+      <div class="postlist-category">{{project.createdAt | date :'dd.MM.yyyy'}}</div>
+      <div class="postlist-dat">{{project.fio}}</div>
+    </div>
+    <ion-card-title class="postlist-title">
+      {{project.name}}
+    </ion-card-title>
+    <img [src]="project.image" />
+    <h5 class="postlist-intro-text">{{project.description}}</h5>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "development": {
+    "port": 3000,
+    "saltRounds": 10,
+    "secret": "slfasdf:SAd",
+    "db": "mongodb://darumada:Darumada123@ds143593.mlab.com:43593/hackaton"
+  }
+}

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title routerLink=''>
+      <- К проектам </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ng-template [ngIf]='project'>
+    <div class="post-category">{{project.createdAt | date :'dd.MM.yyyy'}}</div>
+    <div class="post-dat">{{project.fio}}</div>
+    <h3 class="post-title">{{project.name}}</h3>
+    <img [src]="project.image" />
+    <h5 class="post-intro-text">Срок реализации - {{project.realizationDate}}</h5>
+    <h5 class="post-intro-text">Стоимость - {{project.cost}}</h5>
+    <h5 class="post-intro-text">{{project.description}}</h5>
+    <h5 *ngIf="project.status === 'active'" class="post-intro-text">Статус : Активный</h5>
+    <h5 *ngIf="project.status === 'waiting'" class="post-intro-text">Статус : Ожидается</h5>
+    <h5 *ngIf="project.status === 'completed'" class="post-intro-text" style="color: green">Статус : Завершен</h5>
+    <div class="comments">
+      <h3>Комментарии :</h3>
+
+      <ion-card text-wrap *ngFor='let comment of project.comments'>
+        <ion-card-title>
+          <h4>
+            {{comment.fio}}
+          </h4>
+        </ion-card-title>
+        <h5>{{comment.comment}}</h5>
+        <h5>оценка - {{comment.star || 1}}/5</h5>
+      </ion-card>
+      <ion-card text-wrap>
+        <ion-card-title>
+          <h4>
+            Оставить комментарий
+          </h4>
+        </ion-card-title>
+        <form #comment='ngForm' (ngSubmit)='onSubmit(comment)'>
+          <div class="form-group">
+            <textarea class="form-control" ngModel placeholder="Текст отзыва" rows="3" name='comment'></textarea>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="number" ngModel placeholder="Оценка от 1 до 5" name="star" max="5" min="1">
+          </div>
+          <button *ngIf='!sending' type="submit" class="btn btn-primary">Отправить</button>
+          <img class='preload' *ngIf='sending' src="assets/icon/45.gif" width="30px">
+        </form>
+      </ion-card>
+    </div>
+  </ng-template>
+</ion-content>
