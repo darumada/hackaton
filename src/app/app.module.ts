@@ -11,12 +11,16 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { NoAuthGuard, AuthGuard } from './shared';
 import { RegisterComponent } from './register/register.component';
 import { ProjectComponent } from './project/project.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, ProjectComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProjectComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,

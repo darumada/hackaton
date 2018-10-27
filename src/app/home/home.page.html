@@ -1,11 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Проекты
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content padding>
-  The world is your 12.
-  <p>If you get lost, the
-    <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <ion-card text-wrap class="list-selected" *ngFor='let project of projects'>
+    <div class="">
+      <div class="postlist-category">{{project.createdAt | Date}}</div>
+      <div class="postlist-dat">Актобе</div>
+    </div>
+    <ion-card-title class="postlist-title">
+      {{project.name}}
+    </ion-card-title>
+    <img src="assets/postlist.jpg" />
+    <h5 class="postlist-intro-text">В начале декабря 2004 года была начата реконструкция дороги и до сих пор не закончена</h5>
+  </ion-card>
+
+  <ion-infinite-scroll>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Загрузка данных...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
