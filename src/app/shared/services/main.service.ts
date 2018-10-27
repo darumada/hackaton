@@ -10,4 +10,7 @@ export class MainService {
   login(data) {
     return this.api.request('post', 'users/login', data);
   }
+  register(data) {
+    return this.api.request('post', 'users', data);
+  }
 }

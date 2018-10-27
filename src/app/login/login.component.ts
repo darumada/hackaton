@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MainService, JwtService } from '../shared';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,18 @@ import { MainService, JwtService } from '../shared';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private mainService: MainService, private jwt: JwtService) {}
+  constructor(
+    private mainService: MainService,
+    private jwt: JwtService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
   onSubmit(form: NgForm) {
     this.mainService.login(form.value).subscribe(data => {
-      console.log(data);
-      this.jwt.setToken(data.token);
+      this.jwt.setToken(data.user.token);
+      this.router.navigateByUrl('');
     });
   }
 }
