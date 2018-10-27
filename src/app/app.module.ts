@@ -13,9 +13,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NoAuthGuard, AuthGuard } from './shared';
 import { RegisterComponent } from './register/register.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, ProjectsComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
