@@ -15,12 +15,20 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
+  sending = false;
   ngOnInit() {}
 
   onSubmit(form: NgForm) {
-    this.mainService.login(form.value).subscribe(data => {
-      this.jwt.setToken(data.user.token);
-      this.router.navigateByUrl('');
-    });
+    this.sending = true;
+    this.mainService.login(form.value).subscribe(
+      data => {
+        this.sending = false;
+        this.jwt.setToken(data.user.token);
+        this.router.navigateByUrl('');
+      },
+      () => {
+        this.sending = false;
+      }
+    );
   }
 }

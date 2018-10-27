@@ -1,5 +1,6 @@
 <div class="container center-form">
   <form #register='ngForm' (ngSubmit)='onSubmit(register)'>
+
     <div class="form-group">
       <label for="exampleInputIin1">ИИН</label>
       <input type="text" name='iin' ngModel class="form-control" id="exampleInputIin1" pattern="/^\d{12,12}$/" required aria-describedby="emailHelp"
@@ -18,6 +19,10 @@
       <label for="exampleInputPassword1">Пароль</label>
       <input type="password" name='password' ngModel class="form-control" id="exampleInputPassword1" placeholder="Введите Пароль">
     </div>
-    <button type="submit" class="btn btn-primary">Зарегистрироватся</button>
+    <button *ngIf='!sending' type="submit" class="btn btn-primary">Зарегистрироватся</button>
+    <img *ngIf='sending' src="assets/icon/45.gif">
+    <p>Уже зарегистрированы ,
+      <a [routerLink]="['/login']">Войти</a>
+    </p>
   </form>
 </div>

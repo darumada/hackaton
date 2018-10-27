@@ -8,6 +8,10 @@
       <label for="exampleInputPassword1">Пароль</label>
       <input type="password" name='password' ngModel class="form-control" id="exampleInputPassword1" placeholder="Введите Пароль">
     </div>
-    <button type="submit" class="btn btn-primary">Войти</button>
+    <button *ngIf='!sending' type="submit" class="btn btn-primary">Войти</button>
+    <img *ngIf='sending' src="assets/icon/45.gif">
+    <p>
+      <a [routerLink]="['/register']">Зарегистрироватся</a>
+    </p>
   </form>
 </div>

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard, NoAuthGuard } from './shared';
+import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,12 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent, canActivate: [NoAuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [NoAuthGuard] }
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [NoAuthGuard]
+  },
+  { path: 'project/:id', component: ProjectComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

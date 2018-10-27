@@ -13,4 +13,11 @@ export class MainService {
   register(data) {
     return this.api.request('post', 'users', data);
   }
+  getProjects() {
+    return this.api.request('get', 'projects');
+  }
+
+  getProjectById(id) {
+    return this.api.request('get', `project/${id}`);
+  }
 }
