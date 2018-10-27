@@ -17,7 +17,7 @@ const routes: Routes = [
     component: RegisterComponent,
     canActivate: [NoAuthGuard]
   },
-  { path: 'project/:id', component: ProjectComponent }
+  { path: 'project', component: ProjectComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
