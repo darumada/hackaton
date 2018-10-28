@@ -17,12 +17,13 @@ var app = express();
 // enable cross platform request
 if (app.get('env') === 'development') {
   app.use(logger('dev'));
-  app.use(cors());
   mongoose.set('debug', true);
 } else {
   app.use(logger('common'));
   app.use(helmet());
 }
+
+app.use(cors());
 
 mongoose.connect(config.get('db'));
 
